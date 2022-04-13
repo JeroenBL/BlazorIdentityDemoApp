@@ -1,0 +1,17 @@
+﻿@page "/settings"
+@attribute [Authorize]
+@inject IConfiguration _config
+
+<p>
+    Connection string value: @connectionString
+</p>
+
+@code {
+    string connectionString = "";
+
+    protected override void OnInitialized()
+    {
+        connectionString = _config.GetConnectionString("DefaultConnection");
+    }
+}
+
